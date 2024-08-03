@@ -47,18 +47,20 @@ class Classifier:
         preprocess = Preprocess(self.config)
         preprocess.run()
 
-    def load_data(self):
+    def _load_data(self):
         """
         Load the data.
         """
         data_loader = DataLoader(self.config, self.model_id)
-        self.label_structure, self.data = data_loader.run()
+        label_structure, data = data_loader.run()
+        return label_structure, data
 
     def train(self):
         """
         Train the model.
         """
-        train = Train(self.config, self.label_structure, self.data, self.model_id)
+        label_structure, data = self._load_data()
+        train = Train(self.config, label_structure, data, self.model_id)
         train.run()
 
     def predict(self):

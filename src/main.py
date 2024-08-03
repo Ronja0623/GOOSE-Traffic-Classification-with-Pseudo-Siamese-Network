@@ -16,5 +16,4 @@ shutil.copyfile(
     config_path, os.path.join(config.path.train.description, f"config_{model_id}.json")
 )
 # classifier.preprocess()
-classifier.load_data()
 classifier.train()

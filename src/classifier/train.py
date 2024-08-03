@@ -219,7 +219,7 @@ class Train:
         self.data = data
         self.train_id = train_id
 
-    def save_model(self, model, epoch):
+    def _save_model(self, model, epoch):
         torch.save(
             model.squeeze_branch.state_dict(),
             os.path.join(
@@ -360,7 +360,7 @@ class Train:
                     [epoch, val_loss, val_acc, val_recall, val_precision, val_f1, "val"]
                 )
                 # Save the model states
-                self.save_model(model, epoch)
+                self._save_model(model, epoch)
             test_loss, test_acc, test_precision, test_recall, test_f1 = self._run_phase(
                 "test", test_loader, model, criterion, optimizer, device
             )
