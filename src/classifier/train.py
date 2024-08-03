@@ -10,7 +10,7 @@ from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_sc
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder, StandardScaler
 from torch.utils.data import DataLoader
-from torchvision import models, transforms
+from torchvision import models
 from tqdm import tqdm
 
 
@@ -118,7 +118,6 @@ class SiameseNetwork(nn.Module):
             sublabel_outs[label] = self.sublabel_classifiers[label](combined_feat)
 
         return label_out, sublabel_outs
-
 
 
 class Preprocess:
