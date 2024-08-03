@@ -205,7 +205,7 @@ class Preprocess:
         )
         train_data, val_data = train_test_split(
             train_data,
-            test_size=(1 - self.config.hyperparameter.validate_ratio),
+            test_size=self.config.hyperparameter.validate_ratio,
             random_state=42,
         )
 
