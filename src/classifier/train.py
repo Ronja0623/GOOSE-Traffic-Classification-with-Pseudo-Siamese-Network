@@ -119,9 +119,6 @@ class SiameseNetwork(nn.Module):
 
         return label_out, sublabel_outs
 
-    def load_model(self, squeeze_path, lstm_path):
-        self.squeeze_branch.load_state_dict(torch.load(squeeze_path))
-        self.lstm_branch.load_state_dict(torch.load(lstm_path))
 
 
 class Preprocess:
@@ -228,7 +225,7 @@ class Train:
             model.squeeze_branch.state_dict(),
             os.path.join(
                 self.config.path.train.model,
-                f"squeeze_branch_epoch_{epoch}_{self.train_id}.pth",
+                f"{self.config.hyperparameter.model.CNN.model}_branch_epoch_{epoch}_{self.train_id}.pth",
             ),
         )
         torch.save(
