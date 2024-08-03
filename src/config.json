@@ -1,0 +1,50 @@
+{   
+    "path": {
+        "input": {
+            "pcap": "",
+            "json_pcap": "dataset"
+        },
+        "intermediate": {
+            "csv": "intermediate\\csv",
+            "graph": "intermediate\\graph"
+        },
+        "train": {
+            "model": "train\\model",
+            "score": "train\\score",
+            "description": "train\\description"
+        },
+        "predict": {
+            "result": "predict\\result",
+            "score": "train\\score",
+            "description": "predict\\description"
+        }
+    },
+    "training_dataset": {   
+        "prepared": false,
+        "data_size": 100000,
+        "selected_file_path": ""
+    },
+    "hyperparameter": {
+        "model": {
+            "CNN": {
+                "train": true,
+                "pretrained": true,
+                "pretrained_model_path": "default",
+                "model": "SqueezeNet",
+                "required_image_size": 224
+            },
+            "LSTM": {
+                "train": true,
+                "pretrained": false,
+                "pretrained_model_path": "",
+                "num_layers": 2,
+                "hidden_size": 128
+            }
+        },
+        "epochs": 100,
+        "batch_size": 64,
+        "train_ratio": 0.9,
+        "validate_ratio": 0.1,
+        "learning_rate": 0.001
+    }
+}

@@ -1,0 +1,6 @@
+dataset
+intermediate
+predict
+train
+backup
+*\.pyc
